@@ -1,4 +1,5 @@
 <!--
+	Made By Cliff 2022
 	Club Penguin's Error Prompt Recreation HTML/CSS
 -->
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
 	<title>
 		Error Prompt Template
 	</title>
-	<link type="text/css" rel="stylesheet" href="styles/fonts.css" />
+	<link type="text/css" rel="stylesheet" href="../styles/fonts.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style type="text/css">
 	body {
@@ -64,14 +65,16 @@
 		
 			errorContArr.forEach((divs) => {
 				let setText = divs === "#error-msg-txt" ? errorMsgTxt : errorBtnTxt;
-				replaceErrorText(setText, $(divs));
+				setDivs = $(divs);
+				replaceErrorText(setText);
 			});
 			$(".error-container").show();
 		}
-		function replaceErrorText(text, divs) {
-			divs.text(divs.text().replace(/%.+?%/, text));
+		function replaceErrorText(text) {
+			setDivs.text(setDivs.text().replace(/%.+?%/, text));
 		}
-		
+
+		let setDivs;
 		window.onload = showErrorPrompt;
 	</script>
 </head>
