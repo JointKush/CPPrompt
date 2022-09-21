@@ -1,2 +1,2 @@
 # CPPrompt
-Club Penguin's Error Prompt Recreation HTML/CSS
+Club Penguin's Error Prompt Recreation HTML/CSS AS2
