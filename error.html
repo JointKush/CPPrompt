@@ -60,21 +60,21 @@
 	</style>
 	<script type="text/javascript">
 		function showErrorPrompt() {
-			let errorContArr = ["#error-msg-txt", "#error-txt"];
-			const errorMsgTxt = "Test Message", errorBtnTxt = "Ok";
+		  const errorMessage = "Test Message", buttonText = "Ok";
+			
+		  const elements = {
+		    "#error-msg-txt": errorMessage,
+		    "#error-txt": buttonText,
+		  };
 		
-			errorContArr.forEach((divs) => {
-				let setText = divs === "#error-msg-txt" ? errorMsgTxt : errorBtnTxt;
-				setDivs = $(divs);
-				replaceErrorText(setText);
-			});
-			$(".error-container").show();
+		  for (const [selector, text] of Object.entries(elements)) {
+		    const $element = $(selector);
+		    const updatedText = $element.text().replace(/%.+?%/, text);
+		    $element.text(updatedText);
+		  }
+		
+		  $(".error-container").show();
 		}
-		function replaceErrorText(text) {
-			setDivs.text(setDivs.text().replace(/%.+?%/, text));
-		}
-
-		let setDivs;
 		window.onload = showErrorPrompt;
 	</script>
 </head>
